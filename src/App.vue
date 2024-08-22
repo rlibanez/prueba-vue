@@ -12,14 +12,12 @@ export default {
   <header>
     <img alt="CIC logo" class="logo" src="@/assets/cic.png" width="125" height="125" />
 
-    <!-- <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+    <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
-    </div> -->
+    </div>
   </header>
 
   <router-view></router-view>
