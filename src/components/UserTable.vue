@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table>
+        <table class="user-table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -21,6 +21,7 @@
     </div>
 </template>
 
+
 <script>
 export default {
     props: ['users'],
@@ -31,3 +32,42 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px 15px;
+    text-align: left;
+    color: #333;
+    /* Cambiado a un color más oscuro para mayor legibilidad */
+}
+
+.user-table th {
+    background-color: #3498db;
+    color: #fff;
+    /* Texto blanco para contraste sobre fondo oscuro */
+    font-weight: bold;
+}
+
+.user-table tr {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.user-table tr:hover {
+    background-color: #d1ecf1;
+}
+</style>

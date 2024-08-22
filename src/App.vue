@@ -10,7 +10,7 @@ export default {
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="@/assets/cic.png" width="125" height="125" />
 
     <!-- <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -22,12 +22,26 @@ export default {
     </div> -->
   </header>
 
-  <!-- <router-view></router-view> -->
+  <router-view></router-view>
 
-  <RouterView />
+  <!-- <RouterView /> -->
 </template>
 
 <style scoped>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;

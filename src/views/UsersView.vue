@@ -32,8 +32,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
     display: flex;
+    padding: 20px;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
 }
 </style>
