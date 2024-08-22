@@ -41,6 +41,8 @@ export default {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    /* Ajuste del tamaño de fuente */
 }
 
 .user-table th,
@@ -48,13 +50,13 @@ export default {
     padding: 12px 15px;
     text-align: left;
     color: #333;
-    /* Cambiado a un color más oscuro para mayor legibilidad */
+    /* Texto oscuro */
 }
 
 .user-table th {
     background-color: #3498db;
     color: #fff;
-    /* Texto blanco para contraste sobre fondo oscuro */
+    /* Texto blanco */
     font-weight: bold;
 }
 

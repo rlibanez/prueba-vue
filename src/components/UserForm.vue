@@ -30,11 +30,13 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    font-size: 16px;
+    /* Ajuste del tamaño de fuente */
 }
 
 h2 {
     color: #3498db;
-    /* Mismo color que el encabezado de la tabla */
+    /* Color azul */
 }
 
 .form-group {
@@ -46,7 +48,7 @@ h2 {
     font-weight: bold;
     margin-bottom: 5px;
     color: #3498db;
-    /* Mismo color que el encabezado de la tabla */
+    /* Color azul */
 }
 
 .form-group input {
@@ -54,9 +56,10 @@ h2 {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 16px;
+    /* Ajuste del tamaño de fuente */
     color: #333;
-    /* Color de texto oscuro para legibilidad */
+    /* Texto oscuro */
 }
 
 .form-group input:focus {
@@ -68,7 +71,7 @@ h2 {
 
 .form-group input[readonly] {
     background-color: #f2f2f2;
-    /* Color gris claro para campos de solo lectura */
+    /* Fondo gris claro para campos de solo lectura */
 }
 </style>
 

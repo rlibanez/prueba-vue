@@ -17,9 +17,17 @@ export default {
     data() {
         return {
             users: [
-                { id: 1, firstName: 'Juan', lastName: 'Pérez', dni: '12345678' },
-                { id: 2, firstName: 'María', lastName: 'García', dni: '23456789' },
-                // Otros usuarios...
+                { id: 1, firstName: 'Juan', lastName: 'Pérez', dni: '12345678A' },
+                { id: 2, firstName: 'María', lastName: 'García', dni: '23456789Z' },
+                { id: 3, firstName: 'Pepito', lastName: 'López', dni: '32345678N' },
+                { id: 4, firstName: 'Ana', lastName: 'González', dni: '43456789S' },
+                { id: 5, firstName: 'Cinco', lastName: 'Pérez', dni: '52345678A' },
+                { id: 6, firstName: 'Seis', lastName: 'García', dni: '63456789Z' },
+                { id: 7, firstName: 'Siete', lastName: 'López', dni: '72345678N' },
+                { id: 8, firstName: 'Ocho', lastName: 'González', dni: '88456789S' },
+                { id: 9, firstName: 'Nueve', lastName: 'García', dni: '93456789Z' },
+                { id: 10, firstName: 'Diez', lastName: 'López', dni: '10345678N' },
+                { id: 11, firstName: 'Once', lastName: 'González', dni: '11456789S' },
             ]
         };
     },
@@ -35,13 +43,27 @@ export default {
 <style scoped>
 .container {
     display: flex;
-    padding: 20px;
+    justify-content: center;
+    /* Centra horizontalmente el contenido */
+    align-items: flex-start;
+    /* Alinea el contenido en la parte superior */
+    height: 100vh;
+    /* Ocupa toda la altura de la ventana */
     gap: 30px;
+    /* Espacio entre la tabla y el formulario */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+        justify-content: flex-start;
+        /* Alinea al inicio en pantallas pequeñas */
+        align-items: center;
+        /* Centra horizontalmente en pantallas pequeñas */
+        height: auto;
+        /* Permite que el contenido crezca en altura */
     }
 }
 </style>
