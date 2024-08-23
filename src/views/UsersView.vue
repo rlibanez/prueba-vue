@@ -17,17 +17,17 @@ export default {
     data() {
         return {
             users: [
-                { id: 1, firstName: 'Juan', lastName: 'Pérez', dni: '12345678A' },
-                { id: 2, firstName: 'María', lastName: 'García', dni: '23456789Z' },
-                { id: 3, firstName: 'Pepito', lastName: 'López', dni: '32345678N' },
-                { id: 4, firstName: 'Ana', lastName: 'González', dni: '43456789S' },
-                { id: 5, firstName: 'Cinco', lastName: 'Pérez', dni: '52345678A' },
-                { id: 6, firstName: 'Seis', lastName: 'García', dni: '63456789Z' },
-                { id: 7, firstName: 'Siete', lastName: 'López', dni: '72345678N' },
-                { id: 8, firstName: 'Ocho', lastName: 'González', dni: '88456789S' },
-                { id: 9, firstName: 'Nueve', lastName: 'García', dni: '93456789Z' },
-                { id: 10, firstName: 'Diez', lastName: 'López', dni: '10345678N' },
-                { id: 11, firstName: 'Once', lastName: 'González', dni: '11456789S' },
+                { id: 1, firstName: 'Juan', lastName: 'Pérez', anno: '12345678A' },
+                { id: 2, firstName: 'María', lastName: 'García', anno: '23456789Z' },
+                { id: 3, firstName: 'Pepito', lastName: 'López', anno: '32345678N' },
+                { id: 4, firstName: 'Ana', lastName: 'González', anno: '43456789S' },
+                { id: 5, firstName: 'Cinco', lastName: 'Pérez', anno: '52345678A' },
+                { id: 6, firstName: 'Seis', lastName: 'García', anno: '63456789Z' },
+                { id: 7, firstName: 'Siete', lastName: 'López', anno: '72345678N' },
+                { id: 8, firstName: 'Ocho', lastName: 'González', anno: '88456789S' },
+                { id: 9, firstName: 'Nueve', lastName: 'García', anno: '93456789Z' },
+                { id: 10, firstName: 'Diez', lastName: 'López', anno: '10345678N' },
+                { id: 11, firstName: 'Once', lastName: 'González', anno: '11456789S' },
             ],
             selectedUser: null, // Inicializamos selectedUser cuando usemos watch, no con computed
         };

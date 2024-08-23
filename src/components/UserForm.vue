@@ -15,8 +15,8 @@
                 <input type="text" v-model="user.lastName" />
             </div>
             <div class="form-group">
-                <label>DNI:</label>
-                <input type="text" v-model="user.dni" />
+                <label>Año:</label>
+                <input type="text" v-model="user.anno" />
             </div>
         </form>
     </div>

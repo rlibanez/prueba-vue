@@ -6,7 +6,7 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
-                    <th>DNI</th>
+                    <th>Año</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,7 +14,7 @@
                     <td>{{ user.id }}</td>
                     <td>{{ user.firstName }}</td>
                     <td>{{ user.lastName }}</td>
-                    <td>{{ user.dni }}</td>
+                    <td>{{ user.anno }}</td>
                 </tr>
             </tbody>
         </table>
