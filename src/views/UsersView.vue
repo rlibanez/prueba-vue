@@ -28,13 +28,22 @@ export default {
                 { id: 9, firstName: 'Nueve', lastName: 'García', dni: '93456789Z' },
                 { id: 10, firstName: 'Diez', lastName: 'López', dni: '10345678N' },
                 { id: 11, firstName: 'Once', lastName: 'González', dni: '11456789S' },
-            ]
+            ],
+            selectedUser: null, // Inicializamos selectedUser cuando usemos watch, no con computed
         };
     },
-    computed: {
-        selectedUser() {
-            const userId = this.$route.params.id;
-            return this.users.find(user => user.id === parseInt(userId));
+    // computed: { // se podría hacer el watch de abajo
+    //     selectedUser() {
+    //         const userId = this.$route.params.id;
+    //         return this.users.find(user => user.id === parseInt(userId));
+    //     }
+    // },
+    watch: { // se podría hacer el computed de arriba
+        '$route.params.id': {
+            immediate: true, // Ejecutar inmediatamente al montar el componente
+            handler(newId) {
+                this.selectedUser = this.users.find(user => user.id === parseInt(newId));
+            }
         }
     }
 };
