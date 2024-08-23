@@ -1,7 +1,7 @@
 <template>
     <div v-if="user" class="user-form">
         <h2>Editar Usuario</h2>
-        <form>
+        <form @submit.prevent="submitForm">
             <div class="form-group">
                 <label>ID:</label>
                 <input type="text" v-model="user.id" readonly />
@@ -18,9 +18,27 @@
                 <label>Año:</label>
                 <input type="text" v-model="user.anno" />
             </div>
+            <button type="submit">Guardar</button>
         </form>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        user: {
+            type: Object,
+            required: true
+        }
+    },
+    methods: {
+        submitForm() {
+            // Lógica para enviar el formulario
+            console.log('Formulario enviado:', this.user);
+        }
+    }
+};
+</script>
 
 <style scoped>
 .user-form {
@@ -74,10 +92,3 @@ h2 {
     /* Fondo gris claro para campos de solo lectura */
 }
 </style>
-
-
-<script>
-export default {
-    props: ['user']
-};
-</script>

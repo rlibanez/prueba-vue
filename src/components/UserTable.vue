@@ -27,7 +27,7 @@ export default {
     props: ['users'],
     methods: {
         selectUser(user) {
-            this.$router.push(`/users/${user.id}`);
+            this.$emit('user-selected', user);
         }
     }
 };

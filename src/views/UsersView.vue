@@ -1,13 +1,14 @@
 <template>
     <div class="container">
-        <UserTable :users="users" />
-        <UserForm :user="selectedUser" />
+        <UserTable :users="users" @user-selected="handleUserSelected" />
+        <UserForm v-if="selectedUser" :user="selectedUser" />
     </div>
 </template>
 
 <script>
 import UserTable from '@/components/UserTable.vue';
 import UserForm from '@/components/UserForm.vue';
+import axios from 'axios';
 
 export default {
     components: {
@@ -16,34 +17,53 @@ export default {
     },
     data() {
         return {
-            users: [
-                { id: 1, firstName: 'Juan', lastName: 'Pérez', anno: '12345678A' },
-                { id: 2, firstName: 'María', lastName: 'García', anno: '23456789Z' },
-                { id: 3, firstName: 'Pepito', lastName: 'López', anno: '32345678N' },
-                { id: 4, firstName: 'Ana', lastName: 'González', anno: '43456789S' },
-                { id: 5, firstName: 'Cinco', lastName: 'Pérez', anno: '52345678A' },
-                { id: 6, firstName: 'Seis', lastName: 'García', anno: '63456789Z' },
-                { id: 7, firstName: 'Siete', lastName: 'López', anno: '72345678N' },
-                { id: 8, firstName: 'Ocho', lastName: 'González', anno: '88456789S' },
-                { id: 9, firstName: 'Nueve', lastName: 'García', anno: '93456789Z' },
-                { id: 10, firstName: 'Diez', lastName: 'López', anno: '10345678N' },
-                { id: 11, firstName: 'Once', lastName: 'González', anno: '11456789S' },
-            ],
-            selectedUser: null, // Inicializamos selectedUser cuando usemos watch, no con computed
+            users: [],
+            selectedUser: null
         };
     },
-    // computed: { // se podría hacer el watch de abajo
-    //     selectedUser() {
-    //         const userId = this.$route.params.id;
-    //         return this.users.find(user => user.id === parseInt(userId));
-    //     }
-    // },
-    watch: { // se podría hacer el computed de arriba
-        '$route.params.id': {
-            immediate: true, // Ejecutar inmediatamente al montar el componente
-            handler(newId) {
-                this.selectedUser = this.users.find(user => user.id === parseInt(newId));
+    async created() {
+        await this.fetchUsers();
+        const userId = this.$route.params.id;
+        if (userId) {
+            this.selectUserById(userId);
+        }
+    },
+    watch: {
+        '$route.params.id': function (newId) {
+            if (newId) {
+                this.selectUserById(newId);
             }
+        }
+    },
+    methods: {
+        async fetchUsers() {
+            try {
+                const response = await axios.get('/api/persona');
+                this.users = response.data.map(persona => ({
+                    id: persona.id,
+                    firstName: persona.nombre,
+                    lastName: persona.apellidos,
+                    anno: persona.annoNacimiento
+                }));
+                const userId = this.$route.params.id;
+                if (userId) {
+                    this.selectUserById(userId);
+                }
+            } catch (error) {
+                console.error('Error fetching users:', error);
+            }
+        },
+        selectUserById(id) {
+            const user = this.users.find(user => user.id === parseInt(id));
+            if (user) {
+                this.selectedUser = user;
+            } else {
+                console.error(`User with id ${id} not found`);
+            }
+        },
+        handleUserSelected(user) {
+            this.selectedUser = user;
+            this.$router.push(`/users/${user.id}`);
         }
     }
 };
