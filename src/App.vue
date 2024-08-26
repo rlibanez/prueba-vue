@@ -10,7 +10,7 @@ export default {
 
 <template>
   <header>
-    <img alt="CIC logo" class="logo" src="@/assets/cic.png" width="125" height="125" />
+    <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125" height="125" />
 
     <div class="wrapper">
       <nav>

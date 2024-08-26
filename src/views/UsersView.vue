@@ -1,7 +1,9 @@
 <template>
     <div class="container">
         <UserTable :users="users" @user-selected="handleUserSelected" @user-deleted="handleUserDeleted" />
-        <UserForm v-if="selectedUser" :user="selectedUser" @save-user="handleUserSaved" />
+        <div style="min-width: 365px;">
+            <UserForm  v-if="selectedUser" :user="selectedUser" @save-user="handleUserSaved" />
+        </div>
     </div>
 </template>
 
@@ -128,6 +130,7 @@ export default {
     /* Espacio entre la tabla y el formulario */
     padding: 20px;
     box-sizing: border-box;
+    min-width: 900px;
 }
 
 @media (max-width: 768px) {
