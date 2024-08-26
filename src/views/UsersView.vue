@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <UserTable :users="users" @user-selected="handleUserSelected" @user-deleted="handleUserDeleted" />
-        <UserForm v-if="selectedUser" :user="selectedUser" />
+        <UserForm v-if="selectedUser" :user="selectedUser" @save-user="handleUserSaved" />
     </div>
 </template>
 
@@ -79,6 +79,27 @@ export default {
             } catch (error) {
                 console.error('Error deleting user:', error);
                 toast.error(`Error deleting user with id ${user.id}.`);
+            }
+        },
+        async handleUserSaved(updatedUser) {
+            const toast = useToast();
+            try {
+                console.log('Updated User:', updatedUser); // Añade esta línea para depuración
+                const response = await axios.put(`/api/persona`, updatedUser);
+                const updatedUserData = response.data;
+                const index = this.users.findIndex(user => user.id === updatedUserData.id);
+                if (index !== -1) {
+                    this.users.splice(index, 1, {
+                        id: updatedUserData.id,
+                        firstName: updatedUserData.nombre,
+                        lastName: updatedUserData.apellidos,
+                        anno: updatedUserData.annoNacimiento
+                    });
+                }
+                toast.success(`User with id ${updatedUserData.id} updated successfully.`);
+            } catch (error) {
+                console.error('Error updating user:', error);
+                toast.error(`Error updating user with id ${updatedUser.id}.`);
             }
         }
     }

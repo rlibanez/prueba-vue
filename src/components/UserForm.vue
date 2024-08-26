@@ -18,7 +18,7 @@
                 <label>Año:</label>
                 <input type="text" v-model="user.anno" />
             </div>
-            <button type="submit">Guardar</button>
+            <button type="submit">Actualizar</button>
         </form>
     </div>
 </template>
@@ -33,8 +33,7 @@ export default {
     },
     methods: {
         submitForm() {
-            // Lógica para enviar el formulario
-            console.log('Formulario enviado:', this.user);
+            this.$emit('save-user', { ...this.user });
         }
     }
 };
@@ -90,5 +89,18 @@ h2 {
 .form-group input[readonly] {
     background-color: #f2f2f2;
     /* Fondo gris claro para campos de solo lectura */
+}
+
+button {
+    background-color: #00ca22;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2f8000;
 }
 </style>
