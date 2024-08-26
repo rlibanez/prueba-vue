@@ -3,7 +3,7 @@
         <table class="user-table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Año</th>
@@ -12,7 +12,7 @@
             </thead>
             <tbody>
                 <tr v-for="user in users" :key="user.id" @click="selectUser(user)">
-                    <td>{{ user.id }}</td>
+                    <!-- <td>{{ user.id }}</td> -->
                     <td>{{ user.firstName }}</td>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.anno }}</td>

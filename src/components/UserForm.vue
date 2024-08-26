@@ -2,10 +2,10 @@
     <div v-if="user" class="user-form">
         <h2>Editar Usuario</h2>
         <form @submit.prevent="submitForm">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>ID:</label>
                 <input type="text" v-model="user.id" readonly />
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>Nombre:</label>
                 <input type="text" v-model="user.firstName" />
