@@ -33,6 +33,7 @@ export default {
     },
     methods: {
         submitForm() {
+            console.log('Datos del formulario:', this.user);
             this.$emit('save-user', { ...this.user });
         }
     }

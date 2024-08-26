@@ -84,8 +84,17 @@ export default {
         async handleUserSaved(updatedUser) {
             const toast = useToast();
             try {
-                console.log('Updated User:', updatedUser); // Añade esta línea para depuración
-                const response = await axios.put(`/api/persona`, updatedUser);
+                console.log('Updated User:', updatedUser);
+
+                // Transformar los nombres de los parámetros
+                const transformedUser = {
+                    id: updatedUser.id,
+                    nombre: updatedUser.firstName,
+                    apellidos: updatedUser.lastName,
+                    annoNacimiento: updatedUser.anno
+                };
+
+                const response = await axios.put(`/api/persona`, transformedUser);
                 const updatedUserData = response.data;
                 const index = this.users.findIndex(user => user.id === updatedUserData.id);
                 if (index !== -1) {
