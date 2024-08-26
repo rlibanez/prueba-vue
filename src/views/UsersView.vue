@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <UserTable :users="users" @user-selected="handleUserSelected" />
+        <UserTable :users="users" @user-selected="handleUserSelected" @user-deleted="handleUserDeleted" />
         <UserForm v-if="selectedUser" :user="selectedUser" />
     </div>
 </template>
@@ -9,6 +9,7 @@
 import UserTable from '@/components/UserTable.vue';
 import UserForm from '@/components/UserForm.vue';
 import axios from 'axios';
+import { useToast } from 'vue-toastification';
 
 export default {
     components: {
@@ -64,6 +65,21 @@ export default {
         handleUserSelected(user) {
             this.selectedUser = user;
             this.$router.push(`/users/${user.id}`);
+        },
+        async handleUserDeleted(user) {
+            const toast = useToast();
+            try {
+                await axios.delete(`/api/persona/${user.id}`);
+                this.users = this.users.filter(u => u.id !== user.id);
+                if (this.selectedUser && this.selectedUser.id === user.id) {
+                    this.selectedUser = null;
+                    this.$router.push('/');
+                }
+                toast.success(`User with id ${user.id} deleted successfully.`);
+            } catch (error) {
+                console.error('Error deleting user:', error);
+                toast.error(`Error deleting user with id ${user.id}.`);
+            }
         }
     }
 };

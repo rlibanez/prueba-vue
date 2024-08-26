@@ -7,6 +7,7 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Año</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,6 +16,9 @@
                     <td>{{ user.firstName }}</td>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.anno }}</td>
+                    <td>
+                        <button @click.stop="deleteUser(user)">Borrar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -28,6 +32,9 @@ export default {
     methods: {
         selectUser(user) {
             this.$emit('user-selected', user);
+        },
+        deleteUser(user) {
+            this.$emit('user-deleted', user);
         }
     }
 };
@@ -56,7 +63,6 @@ export default {
 .user-table th {
     background-color: #3498db;
     color: #fff;
-    /* Texto blanco */
     font-weight: bold;
 }
 
@@ -71,5 +77,18 @@ export default {
 
 .user-table tr:hover {
     background-color: #d1ecf1;
+}
+
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c0392b;
 }
 </style>
