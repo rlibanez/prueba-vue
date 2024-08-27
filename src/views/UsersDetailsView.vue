@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <UserTable :users="users" @user-selected="handleUserSelected" @user-deleted="handleUserDeleted" />
+        <UserForm  v-if="selectedUser" :user="selectedUser" @save-user="handleUserSaved" />
     </div>
 </template>
 

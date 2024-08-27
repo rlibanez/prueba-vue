@@ -43,6 +43,9 @@ h2 {
 header {
   line-height: 1.5;
   max-height: 100vh;
+  background-color: #333;
+  padding: 1rem;
+  border-radius: 5em;
 }
 
 .logo {
@@ -96,7 +99,7 @@ nav a:first-of-type {
   nav {
     text-align: left;
     margin-left: -1rem;
-    font-size: 1rem;
+    font-size: 2rem;
 
     padding: 1rem 0;
     margin-top: 1rem;

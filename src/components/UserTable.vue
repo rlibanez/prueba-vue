@@ -17,14 +17,13 @@
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.anno }}</td>
                     <td>
-                        <button @click.stop="deleteUser(user)">Borrar</button>
+                        <button @click.stop="confirmDelete(user)">Borrar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </template>
-
 
 <script>
 export default {
@@ -35,6 +34,11 @@ export default {
         },
         deleteUser(user) {
             this.$emit('user-deleted', user);
+        },
+        confirmDelete(user) {
+            if (confirm('Seguro que quieres eliminar este usuario?')) {
+                this.deleteUser(user);
+            }
         }
     }
 };
