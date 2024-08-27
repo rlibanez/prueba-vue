@@ -105,7 +105,7 @@ export default {
                         anno: updatedUserData.annoNacimiento
                     });
                 }
-                toast.success(`User with id ${updatedUserData.id} updated successfully.`);
+                toast.success(`User ${response.data.nombre} ${response.data.apellidos} updated.`);
             } catch (error) {
                 console.error('Error updating user:', error);
                 toast.error(`Error updating user with id ${updatedUser.id}.`);

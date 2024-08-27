@@ -11,21 +11,21 @@ export default {
 <template>
   <header>
     <RouterLink to="/" class="nohover">
-      <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125" height="125" />
+      <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125"
+        height="125" />
     </RouterLink>
 
     <div class="wrapper">
       <nav>
         <RouterLink class="navthing" to="/">Listado</RouterLink>
         <RouterLink class="navthing" to="/create">Crear</RouterLink>
-        <router-link class="navthing" to="/about">About</router-link>
+        <RouterLink class="navthing" to="/about">About</RouterLink>
       </nav>
     </div>
   </header>
 
   <router-view></router-view>
 
-  <!-- <RouterView /> -->
 </template>
 
 <style scoped>

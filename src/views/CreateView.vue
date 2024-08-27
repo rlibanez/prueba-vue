@@ -37,7 +37,7 @@ export default {
                 console.log('New User:', transformedUser);
 
                 const response = await axios.post('/api/persona', transformedUser);
-                toast.success(`User ${response.data.nombre} created successfully.`);
+                toast.success(`User ${response.data.nombre} ${response.data.apellidos} created.`);
                 // Redirigir a otra vista si es necesario
                 this.$router.push('/users');
             } catch (error) {
@@ -45,38 +45,6 @@ export default {
                 toast.error('Error creating user.');
             }
         }
-
-
-        // async handleUserSaved(updatedUser) {
-        //     const toast = useToast();
-        //     try {
-        //         console.log('Updated User:', updatedUser);
-
-        //         // Transformar los nombres de los parámetros
-        //         const transformedUser = {
-        //             id: updatedUser.id,
-        //             nombre: updatedUser.firstName,
-        //             apellidos: updatedUser.lastName,
-        //             annoNacimiento: updatedUser.anno
-        //         };
-
-        //         const response = await axios.put(`/api/persona`, transformedUser);
-        //         const updatedUserData = response.data;
-        //         const index = this.users.findIndex(user => user.id === updatedUserData.id);
-        //         if (index !== -1) {
-        //             this.users.splice(index, 1, {
-        //                 id: updatedUserData.id,
-        //                 firstName: updatedUserData.nombre,
-        //                 lastName: updatedUserData.apellidos,
-        //                 anno: updatedUserData.annoNacimiento
-        //             });
-        //         }
-        //         toast.success(`User with id ${updatedUserData.id} updated successfully.`);
-        //     } catch (error) {
-        //         console.error('Error updating user:', error);
-        //         toast.error(`Error updating user with id ${updatedUser.id}.`);
-        //     }
-        // }
     }
 };
 </script>
