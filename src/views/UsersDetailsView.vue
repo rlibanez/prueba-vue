@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <UserForm  v-if="selectedUser" :user="selectedUser" @save-user="handleUserSaved" />
+        <UserForm v-if="selectedUser" :user="selectedUser" @save-user="handleUserSaved" title="Editar Usuario"
+            buttonText="Actualizar" />
     </div>
 </template>
 

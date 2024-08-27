@@ -1,6 +1,6 @@
 <template>
     <div v-if="user" class="user-form">
-        <h2>Editar Usuario</h2>
+        <h2>{{ title }}</h2>
         <form @submit.prevent="submitForm">
             <!-- <div class="form-group">
                 <label>ID:</label>
@@ -18,7 +18,7 @@
                 <label>Año:</label>
                 <input type="text" v-model="user.anno" />
             </div>
-            <button type="submit">Actualizar</button>
+            <button type="submit">{{ buttonText }}</button>
         </form>
     </div>
 </template>
@@ -29,6 +29,14 @@ export default {
         user: {
             type: Object,
             required: true
+        },
+        title: {
+            type: String,
+            default: 'Editar Usuario'
+        },
+        buttonText: {
+            type: String,
+            default: 'Actualizar'
         }
     },
     methods: {
