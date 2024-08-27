@@ -10,11 +10,13 @@ export default {
 
 <template>
   <header>
-    <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125" height="125" />
+    <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125"
+      height="125" />
 
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Listado</RouterLink>
+        <RouterLink to="/create">Crear</RouterLink>
         <router-link to="/about">About</router-link>
       </nav>
     </div>
