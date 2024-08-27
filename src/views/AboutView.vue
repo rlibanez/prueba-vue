@@ -34,6 +34,11 @@
 
 <style>
 
+.imgcenter:hover {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
 .imgcenter {
   display: block;
   margin-left: auto;
