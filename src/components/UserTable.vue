@@ -7,7 +7,7 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Año</th>
-                    <th>Acciones</th>
+                    <th class="rightal">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,7 +16,7 @@
                     <td>{{ user.firstName }}</td>
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.anno }}</td>
-                    <td>
+                    <td class="rightal">
                         <button @click.stop="confirmDelete(user)">Borrar</button>
                     </td>
                 </tr>
@@ -59,7 +59,7 @@ export default {
 .user-table th,
 .user-table td {
     padding: 12px 15px;
-    text-align: left;
+    text-align: justify;
     color: #333;
     /* Texto oscuro */
 }
@@ -81,6 +81,12 @@ export default {
 
 .user-table tr:hover {
     background-color: #d1ecf1;
+}
+
+.rightal {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 button {

@@ -10,14 +10,15 @@ export default {
 
 <template>
   <header>
-    <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125"
-      height="125" />
+    <RouterLink to="/" class="nohover">
+      <img alt="CIC logo" class="logo center" style="border-radius: 4em;" src="@/assets/cic.png" width="125" height="125" />
+    </RouterLink>
 
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Listado</RouterLink>
-        <RouterLink to="/create">Crear</RouterLink>
-        <router-link to="/about">About</router-link>
+        <RouterLink class="navthing" to="/">Listado</RouterLink>
+        <RouterLink class="navthing" to="/create">Crear</RouterLink>
+        <router-link class="navthing" to="/about">About</router-link>
       </nav>
     </div>
   </header>
@@ -64,10 +65,6 @@ nav {
 
 nav a.router-link-exact-active {
   color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
 }
 
 nav a {

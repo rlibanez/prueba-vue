@@ -49,12 +49,10 @@ export default {
     width: 100%;
     max-width: 400px;
     font-size: 16px;
-    /* Ajuste del tamaño de fuente */
 }
 
 h2 {
     color: #3498db;
-    /* Color azul */
 }
 
 .form-group {
@@ -66,7 +64,6 @@ h2 {
     font-weight: bold;
     margin-bottom: 5px;
     color: #3498db;
-    /* Color azul */
 }
 
 .form-group input {
@@ -75,21 +72,17 @@ h2 {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    /* Ajuste del tamaño de fuente */
     color: #333;
-    /* Texto oscuro */
 }
 
 .form-group input:focus {
     border-color: #3498db;
     outline: none;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    /* Resaltado azul suave */
 }
 
 .form-group input[readonly] {
     background-color: #f2f2f2;
-    /* Fondo gris claro para campos de solo lectura */
 }
 
 button {
