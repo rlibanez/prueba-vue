@@ -87,6 +87,7 @@ nav a:first-of-type {
   }
 
   header .wrapper {
+    white-space: nowrap;
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
