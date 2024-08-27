@@ -17,6 +17,7 @@
                     <td>{{ user.lastName }}</td>
                     <td>{{ user.anno }}</td>
                     <td class="rightal">
+                        <button class="editbutton">Editar</button>
                         <button @click.stop="confirmDelete(user)">Borrar</button>
                     </td>
                 </tr>
@@ -62,6 +63,16 @@ export default {
     text-align: justify;
     color: #333;
     /* Texto oscuro */
+}
+
+.editbutton{
+    margin-right: 1em;
+    color: black;
+    background-color: #a3e179;
+}
+
+.editbutton:hover{
+    background-color: #7cd660;
 }
 
 .user-table th {
