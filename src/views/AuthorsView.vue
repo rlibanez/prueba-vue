@@ -93,7 +93,7 @@ export default {
                     annoNacimiento: updatedAuthor.anno
                 };
 
-                const response = await axios.put(`/api/persona`, transformedAuthor);
+                const response = await axios.put(`/api/autor`, transformedAuthor);
                 const updatedAuthorData = response.data;
                 const index = this.authors.findIndex(author => author.id === updatedAuthorData.id);
                 if (index !== -1) {

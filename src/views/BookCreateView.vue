@@ -36,8 +36,8 @@ export default {
 
                 console.log('New book:', transformedbook);
 
-                const response = await axios.post('/api/autor', transformedbook);
-                toast.success(`book ${response.data.nombre} ${response.data.apellidos} created.`);
+                const response = await axios.post('/api/libro', transformedbook);
+                toast.success(`book ${response.data.titulo} ${response.data.isbn} created.`);
                 // Redirigir a otra vista si es necesario
                 this.$router.push('/books');
             } catch (error) {
