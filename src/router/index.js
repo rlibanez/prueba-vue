@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import UsersView from '@/views/UsersView.vue';
-import UsersDetailView from '@/views/UsersDetailsView.vue';
+import AuthorsView from '@/views/AuthorsView.vue';
+import AuthorsDetailView from '@/views/AuthorsDetailsView.vue';
 import AboutView from '@/views/AboutView.vue';
 import CreateView from '@/views/CreateView.vue';
 
 const routes = [
   {
-    path: '/users',
-    component: UsersView
+    path: '/authors',
+    component: AuthorsView
   },
   {
-    path: '/users/:id',
-    component: UsersDetailView
+    path: '/authors/:id',
+    component: AuthorsDetailView
   },
   {
     path: '/about',
@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/users'
+    redirect: '/authors'
   }
 ];
 

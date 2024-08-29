@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table class="user-table">
+        <table class="author-table">
             <thead>
                 <tr>
                     <!-- <th>ID</th> -->
@@ -11,14 +11,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id" @click="selectUser(user)">
-                    <!-- <td>{{ user.id }}</td> -->
-                    <td>{{ user.firstName }}</td>
-                    <td>{{ user.lastName }}</td>
-                    <td>{{ user.anno }}</td>
+                <tr v-for="author in authors" :key="author.id" @click="selectAuthor(author)">
+                    <!-- <td>{{ author.id }}</td> -->
+                    <td>{{ author.firstName }}</td>
+                    <td>{{ author.lastName }}</td>
+                    <td>{{ author.anno }}</td>
                     <td class="rightal">
                         <button class="editbutton">Editar</button>
-                        <button @click.stop="confirmDelete(user)">Borrar</button>
+                        <button @click.stop="confirmDelete(author)">Borrar</button>
                     </td>
                 </tr>
             </tbody>
@@ -28,17 +28,17 @@
 
 <script>
 export default {
-    props: ['users'],
+    props: ['authors'],
     methods: {
-        selectUser(user) {
-            this.$emit('user-selected', user);
+        selectAuthor(author) {
+            this.$emit('author-selected', author);
         },
-        deleteUser(user) {
-            this.$emit('user-deleted', user);
+        deleteAuthor(author) {
+            this.$emit('author-deleted', author);
         },
-        confirmDelete(user) {
+        confirmDelete(author) {
             if (confirm('Seguro que quieres eliminar este usuario?')) {
-                this.deleteUser(user);
+                this.deleteAuthor(author);
             }
         }
     }
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped>
-.user-table {
+.author-table {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
@@ -57,8 +57,8 @@ export default {
     /* Ajuste del tamaño de fuente */
 }
 
-.user-table th,
-.user-table td {
+.author-table th,
+.author-table td {
     padding: 12px 15px;
     text-align: justify;
     color: #333;
@@ -75,22 +75,22 @@ export default {
     background-color: #7cd660;
 }
 
-.user-table th {
+.author-table th {
     background-color: #3498db;
     color: #fff;
     font-weight: bold;
 }
 
-.user-table tr {
+.author-table tr {
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
 
-.user-table tr:nth-child(even) {
+.author-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.user-table tr:hover {
+.author-table tr:hover {
     background-color: #d1ecf1;
 }
 

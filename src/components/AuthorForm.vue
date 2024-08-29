@@ -1,22 +1,22 @@
 <template>
-    <div v-if="user" class="user-form">
+    <div v-if="author" class="author-form">
         <h2>{{ title }}</h2>
         <form @submit.prevent="submitForm">
             <!-- <div class="form-group">
                 <label>ID:</label>
-                <input type="text" v-model="user.id" readonly />
+                <input type="text" v-model="author.id" readonly />
             </div> -->
             <div class="form-group">
                 <label>Nombre:</label>
-                <input id="nombre" type="text" v-model="user.firstName" />
+                <input id="nombre" type="text" v-model="author.firstName" />
             </div>
             <div class="form-group">
                 <label>Apellidos:</label>
-                <input id="apellidos" type="text" v-model="user.lastName" />
+                <input id="apellidos" type="text" v-model="author.lastName" />
             </div>
             <div class="form-group">
                 <label>Año:</label>
-                <input id="anno" type="text" v-model="user.anno" />
+                <input id="anno" type="text" v-model="author.anno" />
             </div>
             <button type="submit">{{ buttonText }}</button>
         </form>
@@ -26,13 +26,13 @@
 <script>
 export default {
     props: {
-        user: {
+        author: {
             type: Object,
             required: true
         },
         title: {
             type: String,
-            default: 'Editar Usuario'
+            default: 'Editar Autor'
         },
         buttonText: {
             type: String,
@@ -41,15 +41,15 @@ export default {
     },
     methods: {
         submitForm() {
-            console.log('Datos del formulario:', this.user);
-            this.$emit('save-user', { ...this.user });
+            console.log('Datos del formulario:', this.author);
+            this.$emit('save-author', { ...this.author });
         }
     }
 };
 </script>
 
 <style scoped>
-.user-form {
+.author-form {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;

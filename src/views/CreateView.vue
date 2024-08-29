@@ -1,21 +1,21 @@
 <template>
     <div class="create">
-        <UserForm :user="newUser" @save-user="handleUserSaved" title="Crear Usuario" buttonText="Crear" />
+        <AuthorForm :author="newAuthor" @save-author="handleAuthorSaved" title="Crear Autor" buttonText="Crear" />
     </div>
 </template>
 
 <script>
-import UserForm from '@/components/UserForm.vue';
+import AuthorForm from '@/components/AuthorForm.vue';
 import axios from 'axios';
 import { useToast } from 'vue-toastification';
 
 export default {
     components: {
-        UserForm
+        AuthorForm
     },
     data() {
         return {
-            newUser: {
+            newAuthor: {
                 nombre: '',
                 apellidos: '',
                 annoNacimiento: null
@@ -23,26 +23,26 @@ export default {
         };
     },
     methods: {
-        async handleUserSaved(user) {
+        async handleAuthorSaved(author) {
             const toast = useToast();
             try {
                 // Transformar los nombres de los parámetros
-                const transformedUser = {
+                const transformedAuthor = {
                     id: null,
-                    nombre: user.firstName,
-                    apellidos: user.lastName,
-                    annoNacimiento: user.anno
+                    nombre: author.firstName,
+                    apellidos: author.lastName,
+                    annoNacimiento: author.anno
                 };
 
-                console.log('New User:', transformedUser);
+                console.log('New Author:', transformedAuthor);
 
-                const response = await axios.post('/api/persona', transformedUser);
-                toast.success(`User ${response.data.nombre} ${response.data.apellidos} created.`);
+                const response = await axios.post('/api/autor', transformedAuthor);
+                toast.success(`Author ${response.data.nombre} ${response.data.apellidos} created.`);
                 // Redirigir a otra vista si es necesario
-                this.$router.push('/users');
+                this.$router.push('/authors');
             } catch (error) {
-                console.error('Error creating user:', error);
-                toast.error('Error creating user.');
+                console.error('Error creating author:', error);
+                toast.error('Error creating author.');
             }
         }
     }
