@@ -37,7 +37,7 @@ export default {
             this.$emit('author-deleted', author);
         },
         confirmDelete(author) {
-            if (confirm('Seguro que quieres eliminar este usuario?')) {
+            if (confirm('Seguro que quieres eliminar este autor?')) {
                 this.deleteAuthor(author);
             }
         }

@@ -19,7 +19,11 @@ export default {
       <nav>
         <RouterLink class="navthing" to="/authors">Autores</RouterLink>
         <RouterLink class="navthing" to="/books">Libros</RouterLink>
-        <RouterLink class="navthing" to="/create">Crear</RouterLink>
+
+        <RouterLink class="navthing" to="/create-author">Crear Autor</RouterLink>
+        <RouterLink class="navthing" to="/create-book">Crear Libro</RouterLink>
+        
+        
         <RouterLink class="navthing" to="/about">About</RouterLink>
       </nav>
     </div>

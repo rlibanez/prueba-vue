@@ -1,0 +1,72 @@
+<template>
+    <div class="create">
+        <bookForm :book="newbook" @save-book="handlebookSaved" title="Crear Autor" buttonText="Crear" />
+    </div>
+</template>
+
+<script>
+import bookForm from '@/components/BookForm.vue';
+import axios from 'axios';
+import { useToast } from 'vue-toastification';
+
+export default {
+    components: {
+        bookForm
+    },
+    data() {
+        return {
+            newbook: {
+                nombre: '',
+                apellidos: '',
+                annoNacimiento: null
+            }
+        };
+    },
+    methods: {
+        async handlebookSaved(book) {
+            const toast = useToast();
+            try {
+                // Transformar los nombres de los parámetros
+                const transformedbook = {
+                    id: null,
+                    titulo: libro.titulo,
+                    isbn: libro.isbn,
+                    annoPublicacion: libro.annoPublicacion
+                };
+
+                console.log('New book:', transformedbook);
+
+                const response = await axios.post('/api/autor', transformedbook);
+                toast.success(`book ${response.data.nombre} ${response.data.apellidos} created.`);
+                // Redirigir a otra vista si es necesario
+                this.$router.push('/books');
+            } catch (error) {
+                console.error('Error creating book:', error);
+                toast.error('Error creating book.');
+            }
+        }
+    }
+};
+</script>
+
+<style scoped>
+.create {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    gap: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 900px;
+}
+
+@media (max-width: 768px) {
+    .create {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+    }
+}
+</style>

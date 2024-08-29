@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import AuthorsView from '@/views/AuthorsView.vue';
 import AuthorsDetailView from '@/views/AuthorsDetailsView.vue';
+import BookDetailView from '@/views/BooksDetailsView.vue';
 import AboutView from '@/views/AboutView.vue';
-import CreateView from '@/views/CreateView.vue';
+import AuthorCreateView from '@/views/AuthorCreateView.vue';
+import BookCreateView from '@/views/BookCreateView.vue';
 import BooksView from '@/views/BooksView.vue';
 
 const routes = [
@@ -19,8 +21,12 @@ const routes = [
     component: AboutView
   },
   {
-    path: '/create',
-    component: CreateView
+    path: '/create-author',
+    component: AuthorCreateView
+  },
+  {
+    path: '/create-book',
+    component: BookCreateView
   },
   {
     path: '/',
@@ -29,6 +35,10 @@ const routes = [
   {
     path: '/books',
     component: BooksView
+  },
+  {
+    path: '/books/:id',
+    component: BookDetailView,
   }
 ];
 
