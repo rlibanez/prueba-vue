@@ -88,9 +88,9 @@ export default {
                 // Transformar los nombres de los parámetros
                 const transformedBook = {
                     id: updatedBook.id,
-                    nombre: updatedBook.firstName,
-                    apellidos: updatedBook.lastName,
-                    annoNacimiento: updatedBook.anno
+                    titulo: updatedBook.titulo,
+                    isbn: updatedBook.isbn,
+                    annoPublicacion: updatedBook.annoPublicacion
                 };
 
                 const response = await axios.put(`/api/libro`, transformedBook);
@@ -98,10 +98,10 @@ export default {
                 const index = this.Books.findIndex(Book => Book.id === updatedBookData.id);
                 if (index !== -1) {
                     this.Books.splice(index, 1, {
-                        id: updatedBookData.id,
-                        firstName: updatedBookData.nombre,
-                        lastName: updatedBookData.apellidos,
-                        anno: updatedBookData.annoNacimiento
+                        id: libro.id,
+                        titulo: libro.titulo,
+                        isbn: libro.isbn,
+                        annoPublicacion: libro.annoPublicacion
                     });
                 }
                 toast.success(`Book with id ${updatedBookData.id} updated successfully.`);

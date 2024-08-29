@@ -16,9 +16,9 @@ export default {
     data() {
         return {
             newbook: {
-                nombre: '',
-                apellidos: '',
-                annoNacimiento: null
+                titulo: '',
+                isbn: '',
+                annoPublicacion: null
             }
         };
     },
