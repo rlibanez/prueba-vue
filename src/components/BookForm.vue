@@ -1,5 +1,5 @@
 <template>
-    <div v-if="Book" class="Book-form">
+    <div v-if="book" class="Book-form">
         <h2>{{ title }}</h2>
         <form @submit.prevent="submitForm">
             <!-- <div class="form-group">
@@ -8,7 +8,7 @@
             </div> -->
             <div class="form-group">
                 <label>Titulo:</label>
-                <input id="nombre" type="text" v-model="Book.titulo" />
+                <input id="nombre" type="text" v-model="book.titulo" />
             </div>
             <div class="form-group">
                 <label>ISBN:</label>
@@ -26,7 +26,7 @@
 <script>
 export default {
     props: {
-        Book: {
+        book: {
             type: Object,
             required: true
         },
@@ -41,8 +41,8 @@ export default {
     },
     methods: {
         submitForm() {
-            console.log('Datos del formulario:', this.Book);
-            this.$emit('save-Book', { ...this.Book });
+            console.log('Datos del formulario:', this.book);
+            this.$emit('save-Book', { ...this.book });
         }
     }
 };

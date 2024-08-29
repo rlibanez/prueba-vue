@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <bookForm v-if="selectedbook" :book="selectedbook" @save-book="handlebookSaved" title="Editar Autor"
+        <bookForm v-if="selectedbook" :book="selectedbook" @save-book="handlebookSaved" title="Editar Libro"
             buttonText="Actualizar" />
     </div>
 </template>
