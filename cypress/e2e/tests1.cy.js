@@ -1,12 +1,12 @@
 // https://on.cypress.io/api
 
-describe('Test', () => {
+describe('Looks a ver si funciona', () => {
   it('visits the app root url', () => {
     cy.visit('/')
     cy.contains('a', 'Listado')
   })
 
-  it('checks for a button in a table and navigates to another URL', () => {
+  it('checks un botón a ver si lo manda to another URL', () => {
     cy.visit('/')
     cy.get('table').within(() => {
       cy.get('button').contains('Editar').click()
@@ -14,28 +14,25 @@ describe('Test', () => {
     cy.url().should('include', '/users')
   })
 
-  it('checks for a specific element on the new page', () => {
+  it('checks for a specific element on the about page', () => {
     cy.visit('/about')
     cy.contains('h1', 'Lorem Ipsum')
   })
 
-  // it('fills out and submits a form', () => {
-  //   cy.visit('/create')
-  //   cy.get('input').first().type('aaa')
+  it('fills out and submits a formulario', () => {
+    cy.visit('/create')
+    cy.get('[id^=nombre]').type('aaa')
+    cy.get('[id^=apellidos]').type('123')
+    cy.get('[id^=anno]').type('1999')
+    cy.get('form').submit()
+    cy.contains('div', 'User aaa 123 created.')
+  })
 
-  //   cy.get('Nombre').find('input').type('aaa')
-  //   cy.get('Apellidos').find('input').type('123')
-  //   cy.get('Año').find('input').type('1999')
-
-  //   cy.get('input[name="Apellidos"]').type('123')
-  //   cy.get('input[name="Año"]').type('1999')
-  //   cy.get('form').submit()
-  //   cy.contains('div', 'User aaa created')
-  // })
-
-  // it('checks for an element that appears after an AJAX call', () => {
-  //   cy.visit('/ajax-page')
-  //   cy.contains('button', 'Load Data').click()
-  //   cy.get('.data-loaded').should('be.visible')
-  // })
+  it('deletes an element and checks for the deleted notification', () => {
+    cy.visit('/')
+    cy.get('table').within(() => {
+      cy.get('button').contains('Borrar').click()
+    })
+    cy.contains('div', 'deleted successfully')
+  })
 })

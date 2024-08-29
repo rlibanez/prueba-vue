@@ -8,15 +8,15 @@
             </div> -->
             <div class="form-group">
                 <label>Nombre:</label>
-                <input type="text" v-model="user.firstName" />
+                <input id="nombre" type="text" v-model="user.firstName" />
             </div>
             <div class="form-group">
                 <label>Apellidos:</label>
-                <input type="text" v-model="user.lastName" />
+                <input id="apellidos" type="text" v-model="user.lastName" />
             </div>
             <div class="form-group">
                 <label>Año:</label>
-                <input type="text" v-model="user.anno" />
+                <input id="anno" type="text" v-model="user.anno" />
             </div>
             <button type="submit">{{ buttonText }}</button>
         </form>
