@@ -25,6 +25,14 @@ const routes = [
     component: AuthorCreateView
   },
   {
+    path: '/books',
+    component: BooksView
+  },
+  {
+    path: '/books/:id',
+    component: BookDetailView,
+  },
+  {
     path: '/create-book',
     component: BookCreateView
   },
@@ -32,14 +40,6 @@ const routes = [
     path: '/',
     redirect: '/authors'
   },
-  {
-    path: '/books',
-    component: BooksView
-  },
-  {
-    path: '/books/:id',
-    component: BookDetailView,
-  }
 ];
 
 const router = createRouter({

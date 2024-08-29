@@ -64,7 +64,7 @@ export default {
         },
         handlebookSelected(book) {
             this.selectedbook = book;
-            this.$router.push(`/books/${book.id}`);
+            this.$router.push(`/libro/${book.id}`);
         },
         async handlebookDeleted(book) {
             const toast = useToast();
@@ -124,7 +124,7 @@ export default {
     gap: 30px;
     padding: 20px;
     box-sizing: border-box;
-    min-width: 900px;
+    /* min-width: 900px; */
 }
 
 @media (max-width: 768px) {

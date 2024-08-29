@@ -68,7 +68,7 @@ export default {
         async handleAuthorDeleted(author) {
             const toast = useToast();
             try {
-                await axios.delete(`/api/persona/${author.id}`);
+                await axios.delete(`/api/autor/${author.id}`);
                 this.authors = this.authors.filter(u => u.id !== author.id);
                 if (this.selectedAuthor && this.selectedAuthor.id === author.id) {
                     this.selectedAuthor = null;
@@ -123,7 +123,7 @@ export default {
     gap: 30px;
     padding: 20px;
     box-sizing: border-box;
-    min-width: 900px;
+    /* min-width: 900px; */
 }
 
 @media (max-width: 768px) {
