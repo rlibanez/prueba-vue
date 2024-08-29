@@ -63,7 +63,7 @@ export default {
         },
         handleBookSelected(Book) {
             this.selectedBook = Book;
-            this.$router.push(`/Books/${Book.id}`);
+            this.$router.push(`/books/${Book.id}`);
         },
         async handleBookDeleted(Book) {
             const toast = useToast();
