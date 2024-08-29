@@ -64,12 +64,12 @@ export default {
         },
         handlebookSelected(book) {
             this.selectedbook = book;
-            this.$router.push(`/books/${book.id}`);
+            this.$router.push(`/libro/${book.id}`);
         },
         async handlebookDeleted(book) {
             const toast = useToast();
             try {
-                await axios.delete(`/api/book/${book.id}`);
+                await axios.delete(`/api/libro/${book.id}`);
                 this.books = this.books.filter(u => u.id !== book.id);
                 if (this.selectedbook && this.selectedbook.id === book.id) {
                     this.selectedbook = null;
@@ -94,7 +94,7 @@ export default {
                     annoNacimiento: updatedbook.anno
                 };
 
-                const response = await axios.put(`/api/book`, transformedbook);
+                const response = await axios.put(`/api/libro`, transformedbook);
                 const updatedbookData = response.data;
                 const index = this.books.findIndex(book => book.id === updatedbookData.id);
                 if (index !== -1) {
@@ -124,7 +124,7 @@ export default {
     gap: 30px;
     padding: 20px;
     box-sizing: border-box;
-    min-width: 900px;
+    /* min-width: 900px; */
 }
 
 @media (max-width: 768px) {

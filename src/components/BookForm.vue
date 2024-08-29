@@ -32,7 +32,7 @@ export default {
         },
         title: {
             type: String,
-            default: 'Editar Autor'
+            default: 'Editar Libro'
         },
         buttonText: {
             type: String,
