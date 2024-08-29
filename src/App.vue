@@ -17,7 +17,8 @@ export default {
 
     <div class="wrapper">
       <nav>
-        <RouterLink class="navthing" to="/">Listado</RouterLink>
+        <RouterLink class="navthing" to="/authors">Autores</RouterLink>
+        <RouterLink class="navthing" to="/books">Libros</RouterLink>
         <RouterLink class="navthing" to="/create">Crear</RouterLink>
         <RouterLink class="navthing" to="/about">About</RouterLink>
       </nav>

@@ -3,6 +3,7 @@ import AuthorsView from '@/views/AuthorsView.vue';
 import AuthorsDetailView from '@/views/AuthorsDetailsView.vue';
 import AboutView from '@/views/AboutView.vue';
 import CreateView from '@/views/CreateView.vue';
+import BooksView from '@/views/BooksView.vue';
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
   {
     path: '/',
     redirect: '/authors'
+  },
+  {
+    path: '/books',
+    component: BooksView
   }
 ];
 
