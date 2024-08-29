@@ -6,3 +6,4 @@ describe('My First Test', () => {
     cy.contains('h1', 'You did it!')
   })
 })
+
