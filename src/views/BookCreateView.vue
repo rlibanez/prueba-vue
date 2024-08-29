@@ -29,9 +29,9 @@ export default {
                 // Transformar los nombres de los parámetros
                 const transformedbook = {
                     id: null,
-                    titulo: libro.titulo,
-                    isbn: libro.isbn,
-                    annoPublicacion: libro.annoPublicacion
+                    titulo: book.titulo,
+                    isbn: book.isbn,
+                    annoPublicacion: book.annoPublicacion
                 };
 
                 console.log('New book:', transformedbook);

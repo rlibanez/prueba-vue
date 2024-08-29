@@ -69,7 +69,7 @@ export default {
         async handlebookDeleted(book) {
             const toast = useToast();
             try {
-                await axios.delete(`/api/book/${book.id}`);
+                await axios.delete(`/api/libro/${book.id}`);
                 this.books = this.books.filter(u => u.id !== book.id);
                 if (this.selectedbook && this.selectedbook.id === book.id) {
                     this.selectedbook = null;
@@ -81,31 +81,31 @@ export default {
                 toast.error(`Error deleting book with id ${book.id}.`);
             }
         },
-        async handlebookSaved(updatedbook) {
+        async handlebookSaved(updatedBook) {
             const toast = useToast();
             try {
-                console.log('Updated book:', updatedbook);
+                console.log('Updated book:', updatedBook);
 
                 // Transformar los nombres de los parámetros
                 const transformedbook = {
-                    id: updatedbook.id,
-                    nombre: updatedbook.firstName,
-                    apellidos: updatedbook.lastName,
-                    annoNacimiento: updatedbook.anno
+                    id: updatedBook.id,
+                    titulo: updatedBook.titulo,
+                    isbn: updatedBook.isbn,
+                    annoPublicacion: updatedBook.annoPublicacion
                 };
 
-                const response = await axios.put(`/api/book`, transformedbook);
+                const response = await axios.put(`/api/libro`, transformedbook);
                 const updatedbookData = response.data;
                 const index = this.books.findIndex(book => book.id === updatedbookData.id);
                 if (index !== -1) {
                     this.books.splice(index, 1, {
-                        id: updatedbookData.id,
-                        firstName: updatedbookData.nombre,
-                        lastName: updatedbookData.apellidos,
-                        anno: updatedbookData.annoNacimiento
+                        id: libro.id,
+                        titulo: libro.titulo,
+                        isbn: libro.isbn,
+                        annoPublicacion: libro.annoPublicacion
                     });
                 }
-                toast.success(`book ${response.data.nombre} ${response.data.apellidos} updated.`);
+                toast.success(`book ${response.data.tiulo} ${response.data.isbn} updated.`);
             } catch (error) {
                 console.error('Error updating book:', error);
                 toast.error(`Error updating book with id ${updatedbook.id}.`);
