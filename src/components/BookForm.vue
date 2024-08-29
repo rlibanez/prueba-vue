@@ -7,16 +7,16 @@
                 <input type="text" v-model="Book.id" readonly />
             </div> -->
             <div class="form-group">
-                <label>Nombre:</label>
-                <input id="nombre" type="text" v-model="Book.firstName" />
+                <label>Titulo:</label>
+                <input id="nombre" type="text" v-model="Book.titulo" />
             </div>
             <div class="form-group">
-                <label>Apellidos:</label>
-                <input id="apellidos" type="text" v-model="Book.lastName" />
+                <label>ISBN:</label>
+                <input id="apellidos" type="text" v-model="book.isbn" />
             </div>
             <div class="form-group">
                 <label>Año:</label>
-                <input id="anno" type="text" v-model="Book.anno" />
+                <input id="anno" type="text" v-model="book.annoPublicacion" />
             </div>
             <button type="submit">{{ buttonText }}</button>
         </form>

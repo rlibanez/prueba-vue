@@ -39,12 +39,12 @@ export default {
     methods: {
         async fetchbooks() {
             try {
-                const response = await axios.get('/api/autor');
-                this.books = response.data.map(persona => ({
-                    id: persona.id,
-                    firstName: persona.nombre,
-                    lastName: persona.apellidos,
-                    anno: persona.annoNacimiento
+                const response = await axios.get('/api/libro');
+                this.books = response.data.map(book => ({
+                    id: book.id,
+                    titulo: book.titulo,
+                    isbn: book.isbn,
+                    annoPublicacion: book.annoPublicacion
                 }));
                 const bookId = this.$route.params.id;
                 if (bookId) {
@@ -69,7 +69,7 @@ export default {
         async handlebookDeleted(book) {
             const toast = useToast();
             try {
-                await axios.delete(`/api/persona/${book.id}`);
+                await axios.delete(`/api/book/${book.id}`);
                 this.books = this.books.filter(u => u.id !== book.id);
                 if (this.selectedbook && this.selectedbook.id === book.id) {
                     this.selectedbook = null;
@@ -94,7 +94,7 @@ export default {
                     annoNacimiento: updatedbook.anno
                 };
 
-                const response = await axios.put(`/api/persona`, transformedbook);
+                const response = await axios.put(`/api/book`, transformedbook);
                 const updatedbookData = response.data;
                 const index = this.books.findIndex(book => book.id === updatedbookData.id);
                 if (index !== -1) {
